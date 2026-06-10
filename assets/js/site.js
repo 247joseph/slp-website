@@ -14,8 +14,8 @@
     whatsapp: "919847000000",
     whatsappMsg: "Hello%20Sentinel%20Law%2C%20I%27d%20like%20to%20schedule%20a%20consultation.",
     email: "contact@sentinellaw.in",
-    addressLine1: "3rd Floor, Heritage Plaza, M.G. Road",
-    addressLine2: "Kochi, Kerala 682011"
+    addressLine1: "Kurial Lane, Convent Road",
+    addressLine2: "Kozhikode, Kerala 673032"
   };
   window.SLP_FIRM = FIRM;
   var WA = "https://wa.me/" + FIRM.whatsapp + "?text=" + FIRM.whatsappMsg;
@@ -144,7 +144,7 @@
             '<a href="practice-areas.html">View All</a>' +
           "</div>" +
           '<div class="footer-col"><h5>Office</h5>' +
-            '<span class="line"><b>Kochi, Kerala</b></span>' +
+            '<span class="line"><b>Kozhikode, Kerala</b></span>' +
             '<span class="line">' + FIRM.addressLine1 + "</span>" +
             '<span class="line">' + FIRM.addressLine2 + "</span>" +
             '<a href="' + TEL + '">' + FIRM.phoneDisplay + "</a>" +
