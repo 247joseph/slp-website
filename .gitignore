@@ -1,0 +1,5 @@
+# Local helper files — not part of the site
+PHOTOS-TO-ADD.md
+convert-photos.sh
+_incoming/
+.DS_Store
