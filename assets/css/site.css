@@ -492,3 +492,33 @@ p:last-child { margin-bottom: 0; }
   .site-footer .top { grid-template-columns: 1fr 1fr; }
   .footer-col.brandcol { grid-column: 1 / -1; }
 }
+
+/* ---- Bar Council of India disclaimer (dismissible, bottom-left) ---- */
+.bci-disclaimer {
+  position: fixed; left: 20px; bottom: 20px; z-index: 1200;
+  width: 360px; max-width: calc(100vw - 32px);
+  background: var(--primary); color: rgba(255,255,255,.86);
+  border: 1px solid rgba(197,160,89,.45); border-radius: 14px;
+  padding: 20px 22px 18px; box-shadow: 0 24px 60px -20px rgba(4,22,50,.65);
+  opacity: 0; transform: translateY(16px); pointer-events: none;
+  transition: opacity .35s ease, transform .35s ease;
+}
+.bci-disclaimer.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.bci-disclaimer .bci-close {
+  position: absolute; top: 8px; right: 12px; background: none; border: 0;
+  color: rgba(255,255,255,.55); font-size: 24px; line-height: 1; cursor: pointer;
+  padding: 4px; transition: color .2s;
+}
+.bci-disclaimer .bci-close:hover { color: var(--gold-light); }
+.bci-disclaimer .bci-head {
+  display: flex; align-items: center; gap: 8px; color: var(--gold-light);
+  font-weight: 600; font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+  margin-bottom: 10px; padding-right: 20px;
+}
+.bci-disclaimer .bci-head .micn { font-size: 20px; }
+.bci-disclaimer .bci-body { font-size: 12.5px; line-height: 1.65; margin: 0 0 14px; }
+.bci-disclaimer .bci-actions { display: flex; }
+.bci-disclaimer .bci-accept { padding: 9px 16px; font-size: 13px; }
+@media (max-width: 560px) {
+  .bci-disclaimer { left: 12px; right: 12px; bottom: 76px; width: auto; }
+}

@@ -11,7 +11,7 @@
     name: "Sentinel Law Practitioners",
     phoneDisplay: "+91 484 297 4500",
     phoneHref: "+914842974500",
-    whatsapp: "919847000000",
+    whatsapp: "919633091582",
     whatsappMsg: "Hello%20Sentinel%20Law%2C%20I%27d%20like%20to%20schedule%20a%20consultation.",
     email: "contact@sentinellaw.in",
     addressLine1: "Kurial Lane, Convent Road",
@@ -277,6 +277,41 @@
     document.querySelectorAll("[data-email-text]").forEach(function (el) { el.textContent = FIRM.email; });
   }
 
+  // ---- Bar Council of India disclaimer (dismissible, bottom-left) ----
+  function buildDisclaimer() {
+    var el = document.createElement("aside");
+    el.className = "bci-disclaimer";
+    el.id = "bciDisclaimer";
+    el.setAttribute("role", "dialog");
+    el.setAttribute("aria-label", "Bar Council of India disclaimer");
+    el.innerHTML =
+      '<button class="bci-close" type="button" aria-label="Dismiss disclaimer">&times;</button>' +
+      '<div class="bci-head"><span class="micn">gavel</span><span>Disclaimer &middot; Bar Council of India Rules</span></div>' +
+      '<p class="bci-body">In accordance with the rules of the Bar Council of India, ' + FIRM.name +
+      ' does not advertise or solicit work. By accessing this website (www.sentinellaw.in), you acknowledge that you are seeking ' +
+      'information about the firm of your own accord and that no form of solicitation, advertisement or inducement has been made. ' +
+      'The contents are for general information only, do not constitute legal advice, and do not create an attorney&ndash;client relationship.</p>' +
+      '<div class="bci-actions"><button class="btn btn-gold bci-accept" type="button"><span class="micn">check</span>I Understand &amp; Agree</button></div>';
+    return el;
+  }
+
+  function wireDisclaimer() {
+    var KEY = "slp_bci_ack";
+    var ok = false;
+    try { ok = window.localStorage.getItem(KEY) === "1"; } catch (e) {}
+    if (ok) return;
+    var el = buildDisclaimer();
+    document.body.appendChild(el);
+    requestAnimationFrame(function () { el.classList.add("show"); });
+    function dismiss(remember) {
+      el.classList.remove("show");
+      if (remember) { try { window.localStorage.setItem(KEY, "1"); } catch (e) {} }
+      setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 350);
+    }
+    el.querySelector(".bci-accept").addEventListener("click", function () { dismiss(true); });
+    el.querySelector(".bci-close").addEventListener("click", function () { dismiss(false); });
+  }
+
   function init() {
     mount();
     wireAccordions();
@@ -284,6 +319,7 @@
     wireForms();
     wireDropzones();
     wireShortcuts();
+    wireDisclaimer();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
