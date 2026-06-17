@@ -9,11 +9,15 @@
   // ---- Firm contact details (placeholders — update with real values) ----
   var FIRM = {
     name: "Sentinel Law Practitioners",
-    phoneDisplay: "+91 484 297 4500",
-    phoneHref: "+914842974500",
+    phoneDisplay: "+91 495 796 7341",
+    phoneHref: "+914957967341",
+    mobiles: [
+      { display: "+91 96330 91582", href: "+919633091582" },
+      { display: "+91 96334 20844", href: "+919633420844" }
+    ],
     whatsapp: "919633091582",
     whatsappMsg: "Hello%20Sentinel%20Law%2C%20I%27d%20like%20to%20schedule%20a%20consultation.",
-    email: "contact@sentinellaw.in",
+    email: "sentinellaw.info@gmail.com",
     addressLine1: "Kurial Lane, Convent Road",
     addressLine2: "Kozhikode, Kerala 673032"
   };
@@ -148,6 +152,7 @@
             '<span class="line">' + FIRM.addressLine1 + "</span>" +
             '<span class="line">' + FIRM.addressLine2 + "</span>" +
             '<a href="' + TEL + '">' + FIRM.phoneDisplay + "</a>" +
+            FIRM.mobiles.map(function (m) { return '<a href="tel:' + m.href + '">' + m.display + "</a>"; }).join("") +
             '<a href="mailto:' + FIRM.email + '">' + FIRM.email + "</a>" +
           "</div>" +
           '<div class="footer-col"><h5>Firm</h5>' +
