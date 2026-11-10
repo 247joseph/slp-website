@@ -54,8 +54,7 @@
     ["team.html", "Our Experts", null],
     ["blog.html", "Insights", null],
     ["faq.html", "FAQ", null],
-    ["contact.html", "Contact", null],
-    [DASHBOARD_URL, "Dashboard", null, true]
+    ["contact.html", "Contact", null]
   ];
 
   function practiceMenu() {
@@ -71,7 +70,7 @@
         return '<div class="nav-has-menu"><a href="' + n[0] + '" class="' + cls + '">' + n[1] +
           '</a><div class="nav-menu">' + practiceMenu() + "</div></div>";
       }
-      return '<a href="' + n[0] + '" class="' + cls + '"' + (n[3] ? EXT : "") + ">" + n[1] + "</a>";
+      return '<a href="' + n[0] + '" class="' + cls + '">' + n[1] + "</a>";
     }).join("");
   }
 
@@ -90,6 +89,7 @@
         brand() +
         '<nav class="nav-links" aria-label="Primary">' + navLinks(active) + "</nav>" +
         '<div class="nav-cta">' +
+          '<a class="btn btn-gold btn-dash" href="' + DASHBOARD_URL + '"' + EXT + '><span class="micn">dashboard</span>Dashboard</a>' +
           '<a class="btn btn-primary" href="contact.html#consult">Schedule Consultation</a>' +
           '<button class="nav-toggle" aria-label="Open menu" id="navToggle"><span class="micn">menu</span></button>' +
         "</div>" +
@@ -111,12 +111,12 @@
     d.innerHTML =
       '<div class="mobile-drawer-top">' + brand(true) +
         '<button class="nav-toggle" id="navClose" aria-label="Close menu"><span class="micn">close</span></button></div>' +
+      '<a class="btn btn-gold btn-block btn-dash" href="' + DASHBOARD_URL + '"' + EXT + '><span class="micn">dashboard</span>Dashboard</a>' +
       '<nav class="mobile-nav" aria-label="Mobile">' +
         '<a href="home.html">Home</a><a href="about.html">Firm</a>' +
         '<div class="sub">Practice Areas</div>' + practice +
         '<a href="team.html">Our Experts</a><a href="blog.html">Insights</a>' +
         '<a href="faq.html">FAQ</a><a href="contact.html">Contact</a>' +
-        '<a href="' + DASHBOARD_URL + '"' + EXT + '>Dashboard</a>' +
       "</nav>" +
       '<a class="btn btn-gold btn-block" href="contact.html#consult">Schedule Consultation</a>' +
       '<a class="btn btn-outline-light btn-block mt-2" href="' + WA + '" target="_blank" rel="noopener">WhatsApp Now</a>';

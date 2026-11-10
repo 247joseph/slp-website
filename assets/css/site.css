@@ -225,6 +225,12 @@ p:last-child { margin-bottom: 0; }
 .mobile-nav .sub { font-family: var(--sans); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold-light); padding: 22px 0 6px; }
 .mobile-nav .sub-link { font-family: var(--sans); font-size: 16px; padding: 9px 0; color: rgba(255,255,255,.82); }
 .mobile-drawer .btn { margin-top: 24px; }
+.mobile-drawer .btn-dash { margin: 0 0 18px; }
+.nav-links a { white-space: nowrap; }
+.nav-cta .btn { padding: 14px 20px; white-space: nowrap; }
+@media (max-width: 1360px) { .nav-links { gap: 20px; } .nav-cta { gap: 10px; } }
+@media (max-width: 1180px) { .nav-links { gap: 14px; } .nav-links a { font-size: 11px; letter-spacing: .08em; } .nav-cta .btn { padding: 12px 14px; font-size: 11px; letter-spacing: .08em; gap: 6px; } .brand-logo { height: 46px; } }
+@media (max-width: 960px) { .nav-links { gap: 10px; } .nav-cta .btn .micn { display: none; } }
 
 /* Mobile bottom action bar */
 .bottom-bar {
