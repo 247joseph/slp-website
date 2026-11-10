@@ -43,6 +43,10 @@
     ["nri-legal-services.html", "NRI Legal Services"]
   ];
 
+  // ---- Client dashboard (Whibl workspace for SLP) ----
+  var DASHBOARD_URL = "https://www.whibl.live/slp";
+  var EXT = ' target="_blank" rel="noopener"';
+
   var NAV = [
     ["home.html", "Home", null],
     ["about.html", "Firm", null],
@@ -50,7 +54,8 @@
     ["team.html", "Our Experts", null],
     ["blog.html", "Insights", null],
     ["faq.html", "FAQ", null],
-    ["contact.html", "Contact", null]
+    ["contact.html", "Contact", null],
+    [DASHBOARD_URL, "Dashboard", null, true]
   ];
 
   function practiceMenu() {
@@ -66,7 +71,7 @@
         return '<div class="nav-has-menu"><a href="' + n[0] + '" class="' + cls + '">' + n[1] +
           '</a><div class="nav-menu">' + practiceMenu() + "</div></div>";
       }
-      return '<a href="' + n[0] + '" class="' + cls + '">' + n[1] + "</a>";
+      return '<a href="' + n[0] + '" class="' + cls + '"' + (n[3] ? EXT : "") + ">" + n[1] + "</a>";
     }).join("");
   }
 
@@ -111,6 +116,7 @@
         '<div class="sub">Practice Areas</div>' + practice +
         '<a href="team.html">Our Experts</a><a href="blog.html">Insights</a>' +
         '<a href="faq.html">FAQ</a><a href="contact.html">Contact</a>' +
+        '<a href="' + DASHBOARD_URL + '"' + EXT + '>Dashboard</a>' +
       "</nav>" +
       '<a class="btn btn-gold btn-block" href="contact.html#consult">Schedule Consultation</a>' +
       '<a class="btn btn-outline-light btn-block mt-2" href="' + WA + '" target="_blank" rel="noopener">WhatsApp Now</a>';
@@ -161,6 +167,7 @@
             '<a href="blog.html">Legal Insights</a>' +
             '<a href="faq.html">FAQ</a>' +
             '<a href="contact.html">Contact & Consultation</a>' +
+            '<a href="' + DASHBOARD_URL + '"' + EXT + '>Dashboard</a>' +
           "</div>" +
         "</div>" +
         '<div class="footer-bottom">' +
