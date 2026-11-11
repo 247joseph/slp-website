@@ -226,11 +226,39 @@ p:last-child { margin-bottom: 0; }
 .mobile-nav .sub-link { font-family: var(--sans); font-size: 16px; padding: 9px 0; color: rgba(255,255,255,.82); }
 .mobile-drawer .btn { margin-top: 24px; }
 .mobile-drawer .btn-dash { margin: 0 0 18px; }
-.nav-links a { white-space: nowrap; }
-.nav-cta .btn { padding: 14px 20px; white-space: nowrap; }
-@media (max-width: 1360px) { .nav-links { gap: 20px; } .nav-cta { gap: 10px; } }
-@media (max-width: 1180px) { .nav-links { gap: 14px; } .nav-links a { font-size: 11px; letter-spacing: .08em; } .nav-cta .btn { padding: 12px 14px; font-size: 11px; letter-spacing: .08em; gap: 6px; } .brand-logo { height: 46px; } }
-@media (max-width: 960px) { .nav-links { gap: 10px; } .nav-cta .btn .micn { display: none; } }
+/* ---------- Header layout (logo | centred nav | actions) ---------- */
+.site-header .nav-inner { gap: 48px; }
+.site-header .brand { flex-shrink: 0; }
+.site-header .nav-links { flex: 1 1 auto; justify-content: center; gap: clamp(22px, 2.3vw, 36px); }
+.nav-links > a, .nav-has-menu > a {
+  display: inline-flex; align-items: center; line-height: 1; white-space: nowrap;
+  padding: 8px 0 6px; border-bottom: 2px solid transparent;
+}
+.nav-has-menu { display: flex; align-items: center; }
+.nav-links a.active { border-bottom-color: var(--gold); }
+.nav-cta { flex-shrink: 0; gap: 12px; }
+.nav-cta .btn {
+  height: 48px; padding: 0 24px; font-size: 11px; letter-spacing: .14em; white-space: nowrap; gap: 10px;
+}
+.nav-cta .btn-dash { border-color: var(--gold); }
+.nav-cta .btn-dash .micn { font-size: 18px; }
+.nav-cta .lbl-short { display: none; }
+.site-header a:focus:not(:focus-visible) { outline: none; }
+.site-header a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+/* Laptop widths: slimmer side margins, shorter consult label */
+@media (max-width: 1360px) {
+  .site-header .container { padding-left: 40px; padding-right: 40px; }
+  .site-header .nav-inner { gap: 40px; }
+  .nav-cta .btn { padding: 0 20px; }
+  .nav-cta .lbl-long { display: none; }
+  .nav-cta .lbl-short { display: inline; }
+}
+/* Small laptops / tablets: logo, Dashboard and menu button; links move into the menu */
+@media (max-width: 1140px) {
+  .site-header .nav-links, .nav-cta .btn-primary { display: none; }
+  .nav-toggle { display: inline-flex; }
+}
 
 /* Mobile bottom action bar */
 .bottom-bar {

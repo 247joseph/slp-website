@@ -90,7 +90,7 @@
         '<nav class="nav-links" aria-label="Primary">' + navLinks(active) + "</nav>" +
         '<div class="nav-cta">' +
           '<a class="btn btn-gold btn-dash" href="' + DASHBOARD_URL + '"' + EXT + '><span class="micn">dashboard</span>Dashboard</a>' +
-          '<a class="btn btn-primary" href="contact.html#consult">Schedule Consultation</a>' +
+          '<a class="btn btn-primary" href="contact.html#consult"><span class="lbl-long">Schedule Consultation</span><span class="lbl-short">Consultation</span></a>' +
           '<button class="nav-toggle" aria-label="Open menu" id="navToggle"><span class="micn">menu</span></button>' +
         "</div>" +
       "</div>";
